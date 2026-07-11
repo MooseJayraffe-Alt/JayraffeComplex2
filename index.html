@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>JCXBrowser Setup</title>
+  <title>JCXBrowser - Official Web Browser for Jayraffe Complex</title>
   <style>
     /* Reset and Base Styles */
     * {
@@ -168,11 +168,17 @@
 </head>
 <body>
 
+  <!-- The audio element (hidden by default) -->
+<audio id="bg-music" loop>
+  <source src="VT.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
   <div class="steam-window">
     <!-- Title Bar -->
     <div class="title-bar">
       <div class="title-text">
-        <span>⚙</span> JCXBrowser Setup
+        <span>⚙</span> JCXBrowser - Official Web Browser for Jayraffe Complex
       </div>
       <div class="window-controls">
         <span>_</span>
@@ -189,7 +195,7 @@
     <ul class="features-list">
       <li>Play the latest web games</li>
       <li>Experience experimental extensions</li>
-      <li>Find the best custom themes</li>
+      <li>Download some of the best apps</li>
       <li>Get automatic content filtering</li>
       <li>Browse privately, even when in-game</li>
     </ul>
@@ -200,8 +206,8 @@
       <a href="https://github.com/MooseJayraffe-Alt/JayraffeComplex2/raw/refs/heads/main/JCXBrowser%20Setup%200.1.0.exe" class="steam-btn" style="flex: 1;">
         Download JCXBrowser
       </a>
-      <a href="https://github.com/MooseJayraffe-Alt/JayraffeComplex2" target="_blank" class="steam-btn" style="flex: 1;">
-        View Repository
+      <a href="https://moosejayraffe-alt.github.io/JayraffeComplex/" target="_blank" class="steam-btn" style="flex: 1;">
+        View Legacy JCX (JCX1)
       </a>
     </div>
 
@@ -211,6 +217,48 @@
       <div style="font-weight: bold; font-size: 10px;">COMPLEX</div>
     </div>
   </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const music = document.getElementById('bg-music');
+    
+    // Set the volume (0.0 to 1.0) so it doesn't overpower the experience
+    music.volume = 0.3; 
+
+    // A function to attempt playing the music
+    const startMusic = () => {
+      music.play().then(() => {
+        // Once it successfully plays, remove the event listener so it doesn't re-trigger
+        document.removeEventListener('click', startMusic);
+      }).catch((error) => {
+        console.log("Autoplay blocked until user interacts with the document.", error);
+      });
+    };
+
+    // Listen for any click on the document to start the music
+    document.addEventListener('click', startMusic);
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Pre-load the audio file so there is no delay on the first click
+    const clickSound = new Audio('buttonclickrelease.wav');
+    clickSound.volume = 0.4; // Keep UI sounds relatively quiet
+
+    // 2. Select all buttons you want to make a sound
+    const steamButtons = document.querySelectorAll('.steam-btn');
+
+    // 3. Attach the sound to the 'mousedown' event
+    steamButtons.forEach(button => {
+      button.addEventListener('mousedown', () => {
+        // Reset the audio to the beginning so rapid clicks play every time
+        clickSound.currentTime = 0; 
+        clickSound.play().catch(err => console.log("Audio play error:", err));
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
