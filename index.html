@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JCXBrowser Setup</title>
+  <style>
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #222; /* Outer background to make the window pop */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 11px;
+      color: #bac5b1; /* Classic Steam light text */
+    }
+
+    /* Main Window Container */
+    .steam-window {
+      width: 420px;
+      background-color: #4b5545; /* The iconic dark olive green */
+      border: 1px solid #75816c;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    /* Title Bar */
+    .title-bar {
+      background-color: #4b5545;
+      padding: 4px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #3d4538;
+      cursor: default;
+    }
+
+    .title-bar .title-text {
+      color: #92a087;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .window-controls {
+      display: flex;
+      gap: 6px;
+      color: #92a087;
+      font-weight: bold;
+      font-size: 10px;
+    }
+
+    .window-controls span {
+      cursor: pointer;
+    }
+
+    .window-controls span:hover {
+      color: #fff;
+    }
+
+    /* Logo / Banner Area with Scanlines */
+    .banner-area {
+      height: 110px;
+      margin: 15px 20px;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 1px,
+        rgba(0, 0, 0, 0.1) 1px,
+        rgba(0, 0, 0, 0.1) 2px
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Faking the main logo text to match the vibe */
+    .logo-text {
+      font-size: 28px;
+      font-weight: bold;
+      color: #f2f2f2;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+      font-family: "Trebuchet MS", Arial, sans-serif;
+    }
+
+    /* Features List */
+    .features-list {
+      list-style: none;
+      padding: 0 40px;
+      margin-bottom: 30px;
+    }
+
+    .features-list li {
+      margin-bottom: 6px;
+      font-size: 12px;
+    }
+
+    .features-list li::before {
+      content: "» ";
+      color: #92a087;
+    }
+
+    /* Button Group */
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 30px;
+      margin-bottom: 40px;
+    }
+
+    /* Classic Steam Buttons */
+    .steam-btn {
+      background-color: #434c3e;
+      color: #e1e8dc;
+      text-decoration: none;
+      font-size: 11px;
+      padding: 6px 15px;
+      border: 1px solid #272d23;
+      outline: 1px solid #5a6552;
+      outline-offset: -2px;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .steam-btn:hover {
+      color: #fff;
+      background-color: #4b5545;
+      outline: 1px solid #6c7962;
+    }
+
+    .steam-btn:active {
+      background-color: #3d4538;
+      outline: 1px solid #4a5344;
+      padding: 7px 14px 5px 16px; /* Simulates button press */
+    }
+
+    /* Footer Logos Area */
+    .footer {
+      padding: 0 40px 20px 40px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      opacity: 0.5;
+    }
+
+    .footer-text {
+      font-size: 14px;
+      font-weight: bold;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      letter-spacing: 1px;
+      border: 2px solid #bac5b1;
+      padding: 2px 6px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="steam-window">
+    <!-- Title Bar -->
+    <div class="title-bar">
+      <div class="title-text">
+        <span>⚙</span> JCXBrowser Setup
+      </div>
+      <div class="window-controls">
+        <span>_</span>
+        <span>X</span>
+      </div>
+    </div>
+
+    <!-- Banner Area -->
+    <div class="banner-area">
+      <div class="logo-text">JCXBROWSER</div>
+    </div>
+
+    <!-- Features -->
+    <ul class="features-list">
+      <li>Play the latest web games</li>
+      <li>Experience experimental extensions</li>
+      <li>Find the best custom themes</li>
+      <li>Get automatic content filtering</li>
+      <li>Browse privately, even when in-game</li>
+    </ul>
+
+    <!-- Buttons -->
+    <div class="button-group">
+      <!-- Direct Download Link -->
+      <a href="https://github.com/MooseJayraffe-Alt/JayraffeComplex2/raw/refs/heads/main/JCXBrowser%20Setup%200.1.0.exe" class="steam-btn" style="flex: 1;">
+        Download JCXBrowser
+      </a>
+      <a href="https://github.com/MooseJayraffe-Alt/JayraffeComplex2" target="_blank" class="steam-btn" style="flex: 1;">
+        View Repository
+      </a>
+    </div>
+
+    <!-- Footer Logos -->
+    <div class="footer">
+      <div class="footer-text">JAYRAFFE</div>
+      <div style="font-weight: bold; font-size: 10px;">COMPLEX</div>
+    </div>
+  </div>
+
+</body>
+</html>
