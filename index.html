@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="Discover JCXBrowser, the official web browser for Jayraffe Complex. Play the latest web games, test experimental extensions, and download apps today!">
   <title>JCXBrowser - Official Web Browser for Jayraffe Complex</title>
   <style>
     /* Reset and Base Styles */
@@ -50,6 +51,11 @@
       gap: 5px;
     }
 
+    /* Visual update: Ensured title text behaves like a header without breaking styles */
+    .title-bar h2.title-text {
+      font-weight: normal;
+    }
+
     .window-controls {
       display: flex;
       gap: 6px;
@@ -91,6 +97,18 @@
       letter-spacing: 2px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
       font-family: "Trebuchet MS", Arial, sans-serif;
+    }
+
+    /* Invisible helper text for search engines */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
     }
 
     /* Features List */
@@ -168,27 +186,31 @@
 </head>
 <body>
 
-  <!-- The audio element (hidden by default) -->
 <audio id="bg-music" loop>
   <source src="VT.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
   <div class="steam-window">
-    <!-- Title Bar -->
+    <!-- Title Bar (UPDATED: Added h2 tag for Google to track) -->
     <div class="title-bar">
-      <div class="title-text">
+      <h2 class="title-text">
         <span>⚙</span> JCXBrowser - Official Web Browser for Jayraffe Complex
-      </div>
+      </h2>
       <div class="window-controls">
         <span>_</span>
         <span>X</span>
       </div>
     </div>
 
-    <!-- Banner Area -->
+    <!-- Banner Area (UPDATED: Turned text into an H1 tag for the ultimate search algorithm signal) -->
     <div class="banner-area">
-      <div class="logo-text">JCXBROWSER</div>
+      <h1 class="logo-text">JCXBROWSER</h1>
+    </div>
+
+    <!-- SEO Fix: Invisible Text Area for Googlebot -->
+    <div class="sr-only">
+      <p>Welcome to the official download landing page for JCXBrowser, the native custom software client designed explicitly for the Jayraffe Complex universe created by J. Bisimwa.</p>
     </div>
 
     <!-- Features -->
@@ -202,7 +224,6 @@
 
     <!-- Buttons -->
     <div class="button-group">
-      <!-- Direct Download Link -->
       <a href="https://github.com/MooseJayraffe-Alt/JayraffeComplex2/raw/refs/heads/main/JCXBrowser%20Setup%200.1.0.exe" class="steam-btn" style="flex: 1;">
         Download JCXBrowser
       </a>
@@ -218,41 +239,28 @@
     </div>
   </div>
 
-  <script>
+<script>
   document.addEventListener('DOMContentLoaded', () => {
     const music = document.getElementById('bg-music');
-    
-    // Set the volume (0.0 to 1.0) so it doesn't overpower the experience
     music.volume = 0.3; 
-
-    // A function to attempt playing the music
     const startMusic = () => {
       music.play().then(() => {
-        // Once it successfully plays, remove the event listener so it doesn't re-trigger
         document.removeEventListener('click', startMusic);
       }).catch((error) => {
         console.log("Autoplay blocked until user interacts with the document.", error);
       });
     };
-
-    // Listen for any click on the document to start the music
     document.addEventListener('click', startMusic);
   });
 </script>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // 1. Pre-load the audio file so there is no delay on the first click
     const clickSound = new Audio('buttonclickrelease.wav');
-    clickSound.volume = 0.4; // Keep UI sounds relatively quiet
-
-    // 2. Select all buttons you want to make a sound
+    clickSound.volume = 0.4;
     const steamButtons = document.querySelectorAll('.steam-btn');
-
-    // 3. Attach the sound to the 'mousedown' event
     steamButtons.forEach(button => {
       button.addEventListener('mousedown', () => {
-        // Reset the audio to the beginning so rapid clicks play every time
         clickSound.currentTime = 0; 
         clickSound.play().catch(err => console.log("Audio play error:", err));
       });
